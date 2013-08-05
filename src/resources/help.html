@@ -1,0 +1,223 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>TRMSim-WSN Help</title>
+<meta name="author" content="http://ants.dif.um.es/~felixgm/research/trmsim-wsn">
+</head>
+
+<body bgcolor="#EBF3FA" vlink="#0000FF" alink="#0000FF">
+<a name="0"></a>  
+<h1>TRMSim-WSN Help</h1>
+<a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn"><img src="images/logo_TRMSim-WSN.gif" border="0" align="right" alt="TRMSim-WSN"></a>
+<ul>
+  <li><a href="#introduction">Introduction</a></li>
+  <li><a href="#manual">TRMSim-WSN User's Guide</a></li>
+  <li><a href="#javadoc">Javadoc</a></li>
+  <li><a href="#bugs">Known bugs and enhancements</a></li>
+  <li><a href="#versions">Versions log</a></li>
+  <li><a href="#trmodels">Implemented T&amp;R models</a></li>
+  <li><a href="#acknowledgements">Acknowledgements</a></li>
+  <li><a href="#about">About TRMSim-WSN</a></li>
+</ul>
+<hr align="center" size="10" width="100%">
+<a name="introduction"></a> 
+<h2>Introduction</h2>
+<p><strong>TRMSim-WSN (Trust and Reputation Models Simulator for Wireless Sensor 
+  Networks)</strong> is a Java-based simulator aimed to test Trust and Reputation 
+  models for WSNs.</p>
+<p>It provides several Trust and Reputation models and new ones can be
+easily added. </p> 
+<p>It allows researchers to test and compare their trust and reputation models 
+  against a wide range of WSNs. They can decide whether they want static or dynamic 
+  networks, the percentage of fraudulent nodes, the percentage of nodes acting 
+  as clients or servers, etc.</p>
+<p>It has been designed to easily adapt and integrate a new model within the simulator. 
+  Only a few classes have to be implemented in order to carry out this task.</p>
+<p>&nbsp; </p>
+<p align="center"> <img src="images/TRMSim-WSN.jpg" 
+	  alt="TRMSim-WSN" align="middle" border="0"></p>
+<a href="#0">Go back to main menu</a> 
+<hr align="center" size="10" width="100%">
+<a name="manual"></a> 
+<h2>TRMSim-WSN User's Guide</h2>
+Two documents can be consulted for learning how to use the simulator and how to implement and include a new trust and/or reputation model in TRMSim-WSN:
+<ul>
+    <li><a href="http://ants.dif.um.es/~felixgm/pub/conferences/09/GomezMarmol-ICC09.pdf">TRMSim-WSN, Trust and Reputation Models Simulator for Wireless Sensor Networks</a> (pdf)</li>
+    <li><a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/resources/Implementing%20and%20Integrating%20a%20new%20Trust%20and%20Reputation%20Model%20in%20TRMSim-WSN.pdf">Implementing and Integrating a new Trust and/or Reputation Model in TRMSim-WSN</a> (pdf)</li>
+</ul>
+<br>
+<a href="#0">Go back to main menu</a> 
+<hr align="center" size="10" width="100%">
+<a name="javadoc"></a> 
+<h2>Javadoc</h2>
+<ul>
+  <li><a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/javadoc/index.html">TRMSim-WSN Javadoc</a></li>
+</ul>
+<a href="#0">Go back to main menu</a> 
+<hr align="center" size="10" width="100%">
+<a name="bugs"></a> 
+<h2>Known bugs</h2>
+<h3>and enhancements for future versions</h3>
+Next are shown some known bugs or deficiencies about TRMSim-WSN: 
+<ul>
+    <li>Currently there is no known bug. Please if you find any, consider reporting it at <a href="mailto:felixgm@um.es">felixgm@um.es</a>.</li>
+</ul>
+Additionally, some proposed enhancements for future versions are: 
+<ul>
+  <li>Improve the developed fuzzy logic library by adding new functionality</li>
+  <li>Enhance the 'Sensor properties' panel in order to customize networks, 
+      adding and removing sensors, changing its features (provided services, 
+      goodness, location, range...)</li>
+  <li>Shrink outcomes panels' content to better fit within the specified frame, 
+      leaving some outer margins</li>
+  <li>Allow to export the outcomes obtained in one simulation to several formats
+      (Excel, gnuplot, etc.)</li>
+  <li>Run several trust and reputation models in parallel, in order to perform 
+      an easier comparison of their respective outcomes</li>
+  <li>Implement several mobility patterns for the sensors</li> 
+</ul>
+<a href="#0">Go back to main menu</a> 
+<hr align="center" size="10" width="100%">
+<a name="versions"></a> 
+<h2>Versions log</h2>
+<ul>
+  <li>TRMSim-WSN 0.1 (beta)</li>
+  <ul>
+    <li>First version released and available at <a href="https://sourceforge.net/projects/trmsim-wsn">https://sourceforge.net/projects/trmsim-wsn</a></li>
+  </ul>
+  <li>TRMSim-WSN 0.1</li>
+  <ul>
+    <li>Some bugs when loading and saving WSNs have been solved</li>
+    <li>Help window and About window have been added</li>
+    <li>A menu bar has been added</li>
+    <li>Javadoc has been completed</li>
+    <li>An exception when radio range is equal to 0 (zero) has been handled</li>
+  </ul>
+  <li>TRMSim-WSN 0.2</li>
+  <ul>
+      <li>Two new Trust and Reputation Models have been added: PeerTrust and EigenTrust</li>
+      <li>The generic API for implementing new Trust and Reputation models have been modified and improved</li>
+      <li>Outcomes panels have been enhanced with graphic plots</li>
+      <li>An energy consumption module has been added, with its corresponding results panel</li>
+      <li>Parameters panels have been improved</li>
+      <li>A Windows installer of the simulator has been developed</li>
+  </ul>
+  <li>TRMSim-WSN 0.3</li>
+  <ul>
+      <li>A new reputation model has been incorporated: PowerTrust</li>
+      <li>The simulator has been modified to automatically detect new trust and reputation models implementations by just placing the appropriate classes in the corresponding folders</li>
+      <li>A Template trust and reputation model classes have developed and integrated in the simulator to guide researchers to implement their own models</li>
+      <li>A manual describing the steps to be followed in order to implement and integrate a new trust and reputation model in the simulator has been written</li>
+  </ul>
+  <li>TRMSim-WSN 0.3.1</li>
+  <ul>
+      <li>Some bugs were fixed</li>
+      <li>Hyperlinks functionality in this help has been improved</li>
+  </ul>
+  <li>TRMSim-WSN 0.4</li>
+  <ul>
+      <li>Some bugs were fixed</li>
+      <li>A new reputation model has been incorporated: LFTM</li>
+      <li>A fuzzy logic library has been developed and included</li>
+      <li>Outcomes panels have been improved</li>
+      <li>Network panels have been improved</li>
+      <li>Legend panels have been improved</li>
+      <li>Api2d library is no longer used and needed</li>
+      <li>Parameters file content panel has been added</li>
+  </ul>
+  <li>TRMSim-WSN 0.5</li>
+  <ul>
+      <li>Some bugs were fixed</li>
+      <li>A new reputation model has been incorporated: TRIP</li>
+      <li>The main window has been divided into resizable and scrollable panels (both in the simulation and in the parameters tab)</li>
+      <li>All panels have been labeled</li>
+      <li>A new menu for selecting the current TRM has been added</li>
+      <li>A new hidden panel entitled 'Sensor properties' has been added (it appears when clicking on a sensor)</li>
+      <li>A bug with dynamic networks has been solved</li>
+      <li>Axes and optional grid have been added to the network panel</li>
+      <li>Some typos in javadoc have been corrected</li>
+  </ul>
+</ul>
+<a href="#0">Go back to main menu</a> 
+<hr align="center" size="10" width="100%">
+
+<a name="trmodels"></a>
+<h2>Implemented T&amp;R models</h2>
+<p>Current version of TRMSim-WSN implements the following Trust and Reputation models:</p>
+<ul>
+    <li><strong>BTRM-WSN</strong></li>
+    <ul><li>G&oacute;mez M&aacute;rmol, F. and Mart&iacute;nez P&eacute;rez, G.,
+            &quot;<strong>Providing Trust in Wireless Sensor Networks using a
+            Bio-inspired Technique</strong>&quot;,Telecommunication Systems Journal,
+            vol. 46, no. 2, pp. 163-180, 2011
+    </li></ul>
+    <li><strong>PeerTrust</strong></li>
+    <ul><li>Xiong, L. and Liu, L., &quot;<strong>PeerTrust: Supporting
+            Reputation-Based Trust in Peer-to-Peer Communities</strong>&quot;,
+            IEEE Transactions on Knowledge and Data Engineering, vol. 16, no. 7, 
+            pp. 843-857, 2004
+    </li></ul>
+    <li><strong>EigenTrust</strong></li>
+    <ul><li>Kamvar, S., Schlosser, M. and Garcia-Molina, H., &quot;<strong>The
+            EigenTrust Algorithm for Reputation Management in P2P Networks</strong>&quot;,
+            WWW03: Proceedings of the 12th international conference on World Wide
+            Web, pp. 640-651, 2003
+    </li></ul>
+    <li><strong>PowerTrust</strong></li>
+    <ul><li>Zhou, R. and Hwang, K., &quot;<strong>PowerTrust: A Robust and Scalable
+            Reputation System for Trusted Peer-to-Peer Computing</strong>&quot;,
+            IEEE Transactions on Parallel and Distributed Systems, vol 18, no. 4,
+            pp. 460-473, 2007
+    </li></ul>
+    <li><strong>LFTM</strong></li>
+    <ul><li>G&oacute;mez M&aacute;rmol, F., G&oacute;mez Mar&iacute;n-Bl&aacute;zquez,
+            J. and Mart&iacute;nez P&eacute;rez, G., &quot;<strong>LFTM, Linguistic 
+            Fuzzy Trust Mechanism for distributed networks</strong>&quot;,
+            Concurrency and Computation: Practice &amp; Experience, 2012
+    </li></ul>
+    <li><strong>TRIP</strong></li>
+    <ul><li>G&oacute;mez M&aacute;rmol, F. and Mart&iacute;nez P&eacute;rez, G.,
+            &quot;<strong>TRIP, a Trust and Reputation Infrastructure-based 
+            Proposal for Vehicular Ad-hoc Networks</strong>&quot;,
+            Journal of Network and Computer Applications, vol. 35, no. 3, 
+            pp. 934-941, 2012
+    </li></ul>
+</ul>
+<a href="#0">Go back to main menu</a>
+<hr align="center" size="10" width="100%">
+
+<a name="acknowledgements"></a>
+<h2>Acknowledgements</h2>
+<p>I would like to thank some people and institutions for their help and support:</p>
+<ul>
+  <li>My advisor, <a href="http://webs.um.es/gregorio">Gregorio Mart&iacute;nez 
+    P&eacute;rez</a></li>
+  <li><a href="http://www.f-seneca.org">S&eacute;neca Foundation</a></li>
+  <li>Antonio Bern&aacute;rdez &Aacute;lvarez, who collaborated with the project</li>
+  <li>Jos&eacute; David Morales Garc&iacute;a, who collaborated with the project</li>
+  <li>Hamed Khiabani, who collaborated with the project</li>
+</ul>
+<a href="#0">Go back to main menu</a> 
+<hr align="center" size="10" width="100%">
+<a name="about"></a> 
+<h2>About TRMSim-WSN</h2>
+<p align="center">TRMSim-WSN has been designed and implemented by F&eacute;lix 
+  G&oacute;mez M&aacute;rmol (<a href="mailto:felixgm@um.es">felixgm@um.es</a>), 
+  at the Department of Information and Communication Engineering, 
+  University of Murcia (Spain).</p>
+<p align="center"><a href="http://www.um.es"><img src="images/UM.png" width="105" height="96" border="0" alt="University of Murcia"></a></p>
+<p align="center">In order to check for a new version of TRMSim-WSN, notify found 
+  errors, ask questions or suggest new changes and features, please visit</p>
+<p align="center"><a target="_blank" href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn"> 
+  http://ants.dif.um.es/~felixgm/research/trmsim-wsn</a></p>
+<p align="center">TRMSim-WSN 2012, all rights reserved</p>
+<p>For further information, please check the next reference:</p>
+<ul><li>G&oacute;mez M&aacute;rmol, F. and Mart&iacute;nez P&eacute;rez, G.,
+        &quot;<strong>TRMSim-WSN, Trust and Reputation Models Simulator for
+        Wireless Sensor Networks</strong>&quot;, IEEE International Conference on
+        Communications (IEEE ICC 2009), Communication and Information Systems
+        Security Symposium, Dresden, Germany, 14-18 June 2009
+</li></ul>
+<a href="#0">Go back to main menu</a> 
+</body>
+</html>

@@ -1,0 +1,5 @@
+####################################
+# TemplateTRM parameters file
+####################################
+parameter1Name=parameter1Value
+parameter2Name=parameter2Value

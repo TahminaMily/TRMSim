@@ -1,0 +1,6 @@
+####################################
+# PowerTrust parameters file
+####################################
+epsilon=0.0001
+powerNodesPercentage=0.01
+powerNodesWeight=0.15

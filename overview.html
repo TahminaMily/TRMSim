@@ -1,0 +1,193 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--
+    For NetBeans:
+    -overview "${basedir}/${src.dir}/overview.html"
+-->
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<title>TRMSim-WSN</title>
+<meta name="author" content="http://ants.dif.um.es/~felixgm/research/trmsim-wsn">
+</head>
+<body bgcolor="white">
+This is the Javadoc documentation for <strong>TRMSim-WSN, a Trust and Reputation Models 
+Simulator for Wireless Sensor Networks</strong>.
+<a name="description"></a> 
+<h1>Description</h1>
+      <p><strong><div style="font-size: 400%; line-height: 75%; float: left; font-family: serif;">T</div>
+      </strong>
+      <p><strong>RMSim-WSN (Trust and Reputation Models Simulator for Wireless 
+        Sensor Networks)</strong> is a Java-based simulator aimed to test Trust 
+        and Reputation models for WSNs.</p> 
+      <p>It provides several Trust and Reputation models and <a href="#newtrmodel" target="_self">new
+ones can be easily added</a>. </p> 
+<p>It allows researchers to test and compare their trust and reputation 
+        models against a wide range of WSNs. They can decide whether they want 
+        static or dynamic networks, the percentage of fraudulent nodes, the percentage 
+        of nodes acting as clients or servers, etc.</p>
+      <p>It has been designed to easily adapt and integrate a new model within 
+        the simulator. Only a few classes have to be implemented in order to 
+        carry out this task.</p>
+      <p>&nbsp; </p>
+      <p align="center"> <a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/img/TRMSim-WSN.jpg" target="_blank" ><img src="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/img/TRMSim-WSN.jpg" 
+	  alt="TRMSim-WSN" align="middle" width="600" border="0"></a>
+      </p>
+      <h1>Download</h1>
+      <p>This simulator has been developed under <a href="http://java.sun.com/javase/downloads/index.jsp" target="_blank">jdk 
+        1.6</a>.</p>
+      <p> The full source code can be downloaded from its <a href="https://sourceforge.net/projects/trmsim-wsn" target="_blank"> 
+        sourceforge project page</a>.</p>
+        
+      <h3 class="downloadbar" style="margin: 0pt 0pt 0pt 0.6em; width: 80%;"> 
+        <a target="_blank" href="https://sourceforge.net/project/showfiles.php?group_id=234327"> 
+        Download <br>
+         TRMSim-WSN, Trust and Reputation Models Simulator for Wireless Sensor Networks  <small>&nbsp;</small>
+		   </a>
+		</h3>
+        <p class="brief" style="margin: 0pt; padding: 0pt 0pt 0pt 1.3em; width: 80%;">
+          <strong>Project Admins</strong>:
+            <a target="_blank" href="https://sourceforge.net/users/felixgm/">felixgm</a>,
+			<a target="_blank" href="https://sourceforge.net/users/gregorio-umu/">gregorio-umu</a><br>
+          <strong>Operating System</strong>:
+            <a target="_blank" href="https://sourceforge.net/softwaremap/trove_list.php?form_cat=235">OS Independent (Written in an interpreted language)</a><br>
+          <strong>License</strong>:
+            <a target="_blank" href="https://sourceforge.net/softwaremap/trove_list.php?form_cat=16">GNU Library or Lesser General Public License (LGPL)</a><br>
+        <strong>Category</strong>: <a target="_blank" href="https://sourceforge.net/softwaremap/trove_list.php?form_cat=252">Bio-Informatics</a>, 
+        <a href="https://sourceforge.net/softwaremap/trove_list.php?form_cat=600" target="_blank">Simulations</a>, 
+        <a target="_blank" href="https://sourceforge.net/softwaremap/trove_list.php?form_cat=43">Security</a>, 
+        <a href="https://sourceforge.net/softwaremap/trove_list.php?form_cat=606" target="_blank">Frameworks</a>, 
+        <a href="https://sourceforge.net/softwaremap/trove_list.php?form_cat=561" target="_blank">User 
+        Interfaces</a>, <a href="https://sourceforge.net/softwaremap/trove_list.php?form_cat=138" target="_blank">Benchmark</a><br>
+        </p>
+      
+<p class="bandatitulo">Trust &amp; Reputation models parameters input sample files</p>
+      
+<ul>
+  <li>A sample <a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/resources/BTRM-WSNparameters.txt" target="_blank">BTRM-WSN 
+    parameters</a> input file </li>
+  <li>A sample <a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/resources/EigenTrustparameters.txt" target="_blank">EigenTrust 
+    parameters</a> input file </li>
+  <li>A sample <a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/resources/PeerTrustparameters.txt" target="_blank">PeerTrust 
+    parameters</a> input file</li>
+  <li>A sample <a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/resources/PowerTrustparameters.txt" target="_blank">PowerTrust 
+    parameters</a> input file </li>
+  <li>A sample <a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/resources/LFTMparameters.txt" target="_blank">LFTM
+    parameters</a> input file </li>
+  <li>A sample <a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/resources/TRIPparameters.txt" target="_blank">TRIP
+    parameters</a> input file </li>
+</ul>
+      <p class="bandatitulo">WSN XML input file</p>
+      <ol>
+        <li>A sample <a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/resources/wsn1.xml" target="_blank">XML 
+          network</a> input file</li>
+		<p align="center"><img alt="Network" src="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/img/wsn1.gif"></p>  
+        <li>A sample <a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/resources/wsn2.xml" target="_blank">XML 
+          network</a> input file</li>
+		<p align="center"><img alt="Network" src="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/img/wsn2.gif"></p>  
+      </ol>
+	  <a name="newtrmodel"></a>
+      <h1>New Trust and Reputation Model</h1>
+	  
+<p>In order to add a new Trust and Reputation Model, called <font face="Arial, Helvetica, sans-serif"><strong>TemplateTRM</strong></font>, 
+  into TRMSim you need to follow the next steps:</p>
+	  
+<ol>
+  <li>Create a folder inside <font face="Courier New, Courier, mono">trmodels</font> 
+    folder named <font face="Courier New, Courier, mono">templatetrm</font></li>
+  <li>Create a parameters file inside folder <font face="Courier New, Courier, mono">templatetrm</font>, 
+    called <a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/resources/TemplateTRMparameters.txt" target="_self"> 
+    <font face="Courier New, Courier, mono">TemplateTRMparameters.txt</font></a></li>
+  <li>Create a package called <a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/trm/templatetrm/package-summary.html" target="_self"><font face="Courier New, Courier, mono">es.ants.felixgm.trmsim_wsn.trm.templatetrm</font></a> 
+    (from now on, &#8216;subpackage <font face="Courier New, Courier, mono">templatetrm</font>&#8217;)</li>
+  <li>Create a subclass of class <a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/trm/TRMParameters.html" target="_self"><font face="Courier New, Courier, mono">TRMParameters</font></a> 
+    called <a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/trm/templatetrm/TemplateTRM_Parameters.html" target="_self"><font face="Courier New, Courier, mono">TemplateTRM_Parameters</font></a> 
+    in the subpackage <a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/trm/templatetrm/package-summary.html" target="_self"><font face="Courier New, Courier, mono">templatetrm</font></a></li>
+  <li>Within the package <a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/gui/parameterpanels/package-summary.html" target="_self"><font face="Courier New, Courier, mono">es.ants.felixgm.trmsim_wsn.gui.parameterpanels</font></a> 
+    create a subclass of class <a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/gui/TRMParametersPanel.html" target="_self"><font face="Courier New, Courier, mono">TRMParametersPanel</font></a> 
+    called <a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/gui/parameterpanels/TemplateTRM_ParametersPanel.html" target="_self"><font face="Courier New, Courier, mono">TemplateTRM_ParametersPanel</font></a></li>
+  <li>Create a subclass of class <a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/network/Sensor.html" target="_self"><font face="Courier New, Courier, mono">Sensor</font></a> 
+    called <font face="Courier New, Courier, mono"><a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/trm/templatetrm/TemplateTRM_Sensor.html" target="_self">TemplateTRM_Sensor</a></font> 
+    in the subpackage <font face="Courier New, Courier, mono"><a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/trm/templatetrm/package-summary.html" target="_self">templatetrm</a></font></li>
+  <li>Create a subclass of class <font face="Courier New, Courier, mono"><a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/network/Network.html" target="_self">Network</a></font> 
+    called <font face="Courier New, Courier, mono"><a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/trm/templatetrm/TemplateTRM_Network.html" target="_self">TemplateTRM_Network</a></font> 
+    in the subpackage <font face="Courier New, Courier, mono"><a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/trm/templatetrm/package-summary.html" target="_self">templatetrm</a></font></li>
+  <li>Create a subclass of class <font face="Courier New, Courier, mono"><a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/trm/TRModel_WSN.html" target="_self">TRModel_WSN</a></font> 
+    called <font face="Courier New, Courier, mono"><a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/trm/templatetrm/TemplateTRM.html" target="_self">TemplateTRM</a></font> 
+    in the subpackage <font face="Courier New, Courier, mono"><a href="http://ants.dif.um.es/%7Efelixgm/research/trmsim-wsn/javadoc/es/ants/felixgm/trmsim_wsn/trm/templatetrm/package-summary.html" target="_self">templatetrm</a></font> 
+    (it is important that both the model and the package have the same name, ignoring 
+    upper and lowercase letters, in order to be automatically detectable by the 
+    simulator)</li>
+</ol>
+      <table bgcolor="#ffffcc" border="0" width="100%"><tbody>
+        <tr>
+		  <td>
+		    <a href="http://ants.dif.um.es/~felixgm/research/trmsim-wsn/resources/Implementing%20and%20Integrating%20a%20new%20Trust%20and%20Reputation%20Model%20in%20TRMSim-WSN.pdf" target="_blank"><img src="http://ants.dif.um.es/~felixgm/img/adobe.gif" border="0"></a>
+          </td>
+		  
+      <td> F&eacute;lix G&oacute;mez M&aacute;rmol, &quot;<strong>Implementing 
+        and Integrating a new Trust and/or Reputation Model in TRMSim-WSN</strong>&quot;, 
+        user manual, 2009</td>
+		</tr>
+      </tbody></table>
+
+      <a name="relatedwork"></a> 
+      <h1>Related work</h1>
+      <table bgcolor="#ffffcc" border="0" width="100%"><tbody>
+        <tr><td>
+        <ul>
+          <li>F&eacute;lix G&oacute;mez M&aacute;rmol, Gregorio Mart&iacute;nez 
+            P&eacute;rez, "<strong><a href="http://ants.dif.um.es/~felixgm/pub/conferences/09/GomezMarmol-ICC09.pdf" target="_blank">TRMSim-WSN, Trust and Reputation Models Simulator 
+            for Wireless Sensor Networks</a></strong>", <a href="http://www.ieee-icc.org/2009" target="_blank"> 
+            IEEE International Conference on Communications (IEEE ICC 2009), Communication 
+            and Information Systems Security Symposium</a>, Dresden, Germany, 
+            14-18 June 2009 
+          </li>
+        </ul>
+        </td></tr>
+        <tr><td>
+        <ul>
+          <li>F&eacute;lix G&oacute;mez M&aacute;rmol, Gregorio Mart&iacute;nez P&eacute;rez, "<strong><a href="http://dx.doi.org/10.1016/j.csi.2010.01.003" target="_blank">Towards Pre-Standardization of Trust and Reputation Models for Distributed and Heterogeneous Systems</a></strong>", 
+		  <a href="http://www.elsevier.com/wps/find/journaldescription.cws_home/505607/description" target="_blank">Computer Standards & Interfaces</a>, 
+		  Special Issue on Information and Communications Security, Privacy and Trust: Standards and Regulations, vol. 32, no. 4, pp. 185-196, 2010
+          </li>
+        </ul>
+        </td></tr>
+        <tr><td>
+	  <ul>
+          <li>F&eacute;lix G&oacute;mez M&aacute;rmol, Gregorio Mart&iacute;nez P&eacute;rez, "<strong><a href="http://dx.doi.org/10.1007/s11235-010-9281-7" target="_blank">Providing Trust in Wireless Sensor Networks using a Bio-Inspired Technique</a></strong>", 
+		  <a href="http://www.springer.com/business/business+information+systems/journal/11235" target="_blank">Telecommunication Systems Journal</a>, vol. 46, no. 2, pp. 163-180, 2011
+          </li>
+        </ul>
+        </td></tr>
+        <tr><td>
+	  <ul>
+          <li>F&eacute;lix G&oacute;mez M&aacute;rmol, Gregorio Mart&iacute;nez P&eacute;rez, "<strong><a href="http://dx.doi.org/10.1016/j.cose.2009.05.005" target="_blank">Security Threats Scenarios in Trust and Reputation Models for Distributed Systems</a></strong>",
+		  <a href="http://www.elsevier.com/wps/find/journaldescription.cws_home/405877/description#description" target="_blank">Elsevier Computers &amp; Security</a>, vol. 28, no. 7, pp. 545-556, 2009
+          </li>
+        </ul>
+        </td></tr>
+        <tr><td>
+	  <ul>
+              <li>F&eacute;lix G&oacute;mez M&aacute;rmol, Javier G&oacute;mez Mar&iacute;n-Bl&aacute;zquez, Gregorio Mart&iacute;nez P&eacute;rez, "<strong><a href="http://dx.doi.org/10.1002/cpe.1825" target="_blank">LFTM, Linguistic Fuzzy Trust Mechanism for distributed networks</a></strong>",
+                  <a href="http://eu.wiley.com/WileyCDA/WileyTitle/productCd-CPE.html" target="_blank">Concurrency and Computation: Practice & Experience</a>, 2012
+          </li>
+        </ul>
+        </td></tr>
+        <tr><td>
+	  <ul>
+              <li>F&eacute;lix G&oacute;mez M&aacute;rmol, Gregorio Mart&iacute;nez P&eacute;rez, "<strong><a href="http://dx.doi.org/10.1016/j.jnca.2011.03.028" target="_blank">TRIP, a Trust and Reputation Infrastructure-based Proposal for Vehicular Ad-hoc Networks</a></strong>",
+                  <a href="http://journals.elsevier.com/10848045/journal-of-network-and-computer-applications" target="_blank">Journal of Network and Computer Applications</a>, vol. 35, no. 3, pp. 934-941, 2012
+          </li>
+        </ul>
+        </td></tr>
+        <tr><td>
+        <ul>
+          <li>F&eacute;lix G&oacute;mez M&aacute;rmol, Gregorio Mart&iacute;nez 
+            P&eacute;rez, &#8220;<a href="http://ants.dif.um.es/~felixgm/research/tacs">TACS, 
+            a Trust Ant Colony System</a>&#8221;, 2010.</li>
+        </ul>
+        </td></tr>
+      </tbody></table>
+</body>
+</html>
