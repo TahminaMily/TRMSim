@@ -1,0 +1,8 @@
+####################################
+# EigenTrust parameters file
+####################################
+windowSize=5
+epsilon=0.1
+preTrustedPeersPercentage=0.3
+preTrustedPeersWeight=0.25
+zeroTrustNodeSelectionProbability=0.2

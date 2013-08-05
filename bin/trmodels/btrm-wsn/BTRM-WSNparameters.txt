@@ -1,0 +1,15 @@
+####################################
+# BTRM-WSN parameters file
+# Thu Jun 19 14:07:13 CEST 2008
+####################################
+pathLengthFactor=0.71
+alpha=1.0
+phi=0.01
+initialPheromone=0.85
+q0=0.45
+numIterations=0.59
+punishmentThreshold=0.48
+rho=0.87
+beta=1.0
+numAnts=0.35
+transitionThreshold=0.66

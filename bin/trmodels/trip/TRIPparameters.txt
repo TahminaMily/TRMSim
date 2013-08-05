@@ -1,0 +1,15 @@
+####################################
+# TRIP parameters file
+# Mon Jul 26 11:59:36 CEST 2010
+####################################
+initialAlpha=0.3
+initialBeta=0.4
+initialGamma=0.3
+rsuPercentage=0.05
+numHopsQueriedRecommenders=3
+notTrustFuzzySetMean=0.0
+notTrustFuzzySetStDev=0.2
+moreOrLessTrustFuzzySetMean=0.5
+moreOrLessTrustFuzzySetStDev=0.15
+trustFuzzySetMean=1.0
+trustFuzzySetStDev=0.2
