@@ -1,5 +1,4 @@
 ####################################
 # TemplateTRM parameters file
 ####################################
-parameter1Name=parameter1Value
-parameter2Name=parameter2Value
+epsilon=0.1
