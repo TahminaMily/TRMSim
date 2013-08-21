@@ -42,6 +42,11 @@
 package es.ants.felixgm.trmsim_wsn.trm.templatetrm;
 
 import es.ants.felixgm.trmsim_wsn.network.Sensor;
+import es.ants.felixgm.trmsim_wsn.outcomes.Outcome;
+import es.ants.felixgm.trmsim_wsn.satisfaction.SatisfactionInterval;
+import es.ants.felixgm.trmsim_wsn.trm.peertrust.Transaction;
+import java.util.Collection;
+import java.util.LinkedList;
 
 /**
  * <p>This class models a Sensor implementing TemplateTRM</p>
@@ -51,6 +56,14 @@ import es.ants.felixgm.trmsim_wsn.network.Sensor;
  */
 public class TemplateTRM_Sensor extends Sensor {
 
+    /** Number of sensors composing the network this sensor belongs to */
+    protected static int _numSensors = 0;
+    /** Collection of Transactions this sensor has had */
+    protected Collection<Transaction> transactions;
+    
+    private double[] trustVector;
+    private double[] weightVector;
+    
     /**
      * This constructor creates a new Sensor implementing TemplateTRM
      */
@@ -68,7 +81,91 @@ public class TemplateTRM_Sensor extends Sensor {
         super(id,x,y);
     }
 
+    /**
+     * Returns the number of sensors composing the network this sensor belongs to
+     * @return The number of sensors composing the network this sensor belongs to
+     */
+    public static int getNumSensors() { return _numSensors; }
+    
+    /**
+     * Sets the number of sensors composing the network this sensor belongs to
+     * @param numSensors The number of sensors composing the network this sensor belongs to
+     */
+    public static void setNumSensors(int numSensors){ _numSensors = numSensors; }
+    
     @Override
     public void reset() {
+        transactions = new LinkedList<Transaction>();
+        weightVector = new double[_numSensors];
+        trustVector = new double[_numSensors];
+        for (int i = 0; i < trustVector.length; i ++)
+            trustVector[i] = 1.0;
+        setWeightVector();
+    }
+    
+    /**
+     * This method adds a new Transaction to the collection of transactions of this sensor
+     * @param client The client who requested the service
+     * @param server The server who provided the service
+     * @param outcome Outcome of the trnsaction to be added
+     */
+    public synchronized void addNewTransaction(TemplateTRM_Sensor client, TemplateTRM_Sensor server, Outcome outcome){
+        //if ((transactions.size() != 0) && (transactions.size() >= _windowSize))
+          //  ((LinkedList<Transaction>)transactions).removeLast();
+
+        ((LinkedList<Transaction>)transactions).addFirst(new Transaction(client,server,outcome));
+        
+    }
+    
+    public synchronized void setWeightVector(){
+        int sum = 0;
+        for(int i = 0; i< trustVector.length; i++)
+            sum += trustVector[i];
+        for (int i = 0; i<weightVector.length; i++){
+            if(sum!=0)
+                weightVector[i] = trustVector[i]/sum;
+        } 
+    }
+    public synchronized void setTrustVector(double[] trustVector){
+        for(int i = 0; i< trustVector.length; i++)
+            this.trustVector[i] = trustVector[i];
+    }
+    public double[] getTrustVector(){ return trustVector;}
+    
+    public synchronized double getReputation(){
+        double reputation = 0.0;
+        int i = 0;
+        for (Transaction transaction : transactions){
+             TemplateTRM_Sensor client = (TemplateTRM_Sensor)transaction.getClient();
+             reputation += weightVector[i]*client.getRating(this);
+             i++;
+        }
+        return reputation; 
+    }
+    
+    public synchronized double getBeliefDivergence(){
+        
+        double beliefDivergence = 0.0;
+        double sum = 0.0;
+        int i = 0;
+        for (Transaction transaction : transactions) {
+             TemplateTRM_Sensor client = (TemplateTRM_Sensor)transaction.getClient();
+             sum += Math.pow(client.getRating(this) - client.getReputation(),2.0);
+             i++;
+        }
+        if(transactions.isEmpty()|| sum == 0){
+           beliefDivergence = 0.0; 
+        }
+        else
+            beliefDivergence = 1/transactions.size() *sum;
+        return beliefDivergence;
+    }
+    private synchronized double getRating(TemplateTRM_Sensor server) {
+        double ratingValue = 0.0;
+
+        for (Transaction transaction : transactions) 
+            if (transaction.getServer().equals(server))
+                ratingValue = ((SatisfactionInterval)transaction.getSatisfaction()).getSatisfactionValue();
+        return ratingValue;
     }
 }

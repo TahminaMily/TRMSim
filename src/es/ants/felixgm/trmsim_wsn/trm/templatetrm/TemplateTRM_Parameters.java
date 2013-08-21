@@ -66,11 +66,18 @@ public class TemplateTRM_Parameters extends TRMParameters {
     /** Default parameters file name */
     public static final String defaultParametersFileName = "trmodels/templatetrm/TemplateTRMparameters.txt";
 
+    private double epsilon;
     /**
      * Creates a new instance of TemplateTRM_Parameters setting them to their default values
      */
     public TemplateTRM_Parameters() {
         super();
+        parametersFileHeader = "####################################\n";
+        parametersFileHeader += "# Iterative Filtering parameters file\n";
+        parametersFileHeader += "# "+(new java.util.Date())+"\n";
+        parametersFileHeader += "####################################\n";
+        
+        epsilon = 0.1;
     }
 
     /**
@@ -80,10 +87,36 @@ public class TemplateTRM_Parameters extends TRMParameters {
      */
     public TemplateTRM_Parameters(String fileName) throws Exception {
         super(fileName);
+        parametersFileHeader = "####################################\n";
+        parametersFileHeader += "# Iterative Filtering parameters file\n";
+        parametersFileHeader += "# "+(new java.util.Date())+"\n";
+        parametersFileHeader += "####################################\n";
+        
+        epsilon = getDoubleParameter("epsilon");
+    }
+    
+    /**
+     * Returns the epsilon parameter value
+     * @return The epsilon parameter value
+     */
+    public double get_epsilon() { return epsilon; }
+    
+    /**
+     * This method sets a new epsilon parameter value
+     * @param epsilon New epsilon parameter value
+     */
+    public void set_epsilon(double epsilon) {
+        this.epsilon = epsilon;
+        setDoubleParameter("epsilon", epsilon);
     }
 
     @Override
     public String toString() {
-        throw new UnsupportedOperationException("Not supported yet.");
+        //throw new UnsupportedOperationException("Not supported yet.");
+        String s = parametersFileHeader;
+        
+        s += "epsilon="+epsilon+"\n";
+        
+        return s;
     }
 }

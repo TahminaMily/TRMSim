@@ -94,4 +94,11 @@ public class TemplateTRM_Network extends Network {
     public Sensor newSensor(int id, double x, double y) {
         return new TemplateTRM_Sensor(id,x,y);
     }
+    
+    @Override
+    public void reset() {
+        TemplateTRM_Sensor.setNumSensors(sensors.size());
+        super.reset();
+    }
+            
 }

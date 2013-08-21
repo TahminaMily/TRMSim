@@ -45,6 +45,9 @@ import es.ants.felixgm.trmsim_wsn.outcomes.Outcome;
 import es.ants.felixgm.trmsim_wsn.network.Network;
 import es.ants.felixgm.trmsim_wsn.network.Sensor;
 import es.ants.felixgm.trmsim_wsn.network.Service;
+import es.ants.felixgm.trmsim_wsn.outcomes.EnergyConsumptionOutcome;
+import es.ants.felixgm.trmsim_wsn.satisfaction.SatisfactionInterval;
+import es.ants.felixgm.trmsim_wsn.search.IsServerSearchCondition;
 import es.ants.felixgm.trmsim_wsn.trm.GatheredInformation;
 import es.ants.felixgm.trmsim_wsn.trm.TRModel_WSN;
 import java.util.Collection;
@@ -74,6 +77,12 @@ import java.util.Vector;
  */
 public class TemplateTRM  extends TRModel_WSN {
 
+    /** Minimum satisfaction value: {@value} */
+    protected final double MIN_SATISFACTION = 0.0;
+    /** Maximum satisfaction value: {@value} */
+    protected final double MAX_SATISFACTION = 1.0;
+    
+    
     /**
      * Class TemplateTRM constructor
      * @param templateTRM_parameters Parameters needed for the algorithm, as described <a href="#TemplateTRMparameters">before</a>
@@ -90,17 +99,58 @@ public class TemplateTRM  extends TRModel_WSN {
 
     @Override
     public GatheredInformation gatherInformation(Sensor client, Service service) {
-        return null;
+        Collection<Vector<Sensor>> pathsToServers = client.findSensors(new IsServerSearchCondition(service));
+        return new GatheredInformation(pathsToServers);
     }
 
     @Override
     public Vector<Sensor> scoreAndRanking(Sensor client, GatheredInformation gi) {
-        return null;
+        
+        double delta = Double.NEGATIVE_INFINITY;
+        Vector<Sensor> mostTrustworthyPath = new Vector<Sensor>();
+        double[] newTrustVector = new double[TemplateTRM_Sensor.getNumSensors()];
+        do{
+            
+            ((TemplateTRM_Sensor)client).setWeightVector();
+            double maxTrustworthyness = 0.0;
+            int i = 0;
+            for(Vector<Sensor> pathToServer : gi.getPathsToServers()){
+                TemplateTRM_Sensor server = (TemplateTRM_Sensor)pathToServer.lastElement();
+                double trustworthyness = 1/server.getBeliefDivergence();
+                newTrustVector[i] = trustworthyness;
+                if(trustworthyness > maxTrustworthyness){ 
+                    maxTrustworthyness = trustworthyness;
+                    mostTrustworthyPath = pathToServer;
+                }
+                i++;
+            }
+            
+            delta = trustVectorsDistance(((TemplateTRM_Sensor)client).getTrustVector(),newTrustVector);
+            ((TemplateTRM_Sensor)client).setTrustVector(newTrustVector);
+            
+        }while(delta > ((TemplateTRM_Parameters)trmParameters).get_epsilon());        
+        
+        return mostTrustworthyPath;
     }
 
     @Override
     public Outcome performTransaction(Vector<Sensor> path, Service service) {
-        return null;
+        Outcome outcome = null;
+        if ((path == null) || (path.size() == 0) || (!path.lastElement().isActive()))
+            return outcome;
+        
+        TemplateTRM_Sensor client = (TemplateTRM_Sensor)path.firstElement();
+        TemplateTRM_Sensor server = (TemplateTRM_Sensor)path.lastElement();
+        Service receivedService = server.serve(service,path);
+        if (receivedService == null)
+            outcome = new EnergyConsumptionOutcome(new SatisfactionInterval(MIN_SATISFACTION,MAX_SATISFACTION,MIN_SATISFACTION),path.size());
+        else
+            outcome = new EnergyConsumptionOutcome(new SatisfactionInterval(MIN_SATISFACTION,MAX_SATISFACTION,MAX_SATISFACTION),path.size());
+
+        server.addNewTransaction(client, server, null);
+        client.addNewTransaction(client, server, outcome);
+
+        return outcome;
     }
 
     @Override
@@ -128,4 +178,23 @@ public class TemplateTRM  extends TRModel_WSN {
     public Network loadCurrentNetwork(String fileName) throws Exception {
         return new TemplateTRM_Network(fileName);
     }
+    /**
+     * This method computes the difference: ||t^{k+1} - t^k||
+     * @param globalTrustVector1 t^{k+1}
+     * @param globalTrustVector2 t^k
+     * @return ||t^{k+1} - t^k||
+     */
+    private double trustVectorsDistance(double[] globalTrustVector1, double[] globalTrustVector2) {
+        double distance = 0.0;
+
+        for (int i = 0 ; i < globalTrustVector1.length; i++)
+            distance += Math.pow(globalTrustVector1[i]-globalTrustVector2[i], 2);
+
+        if (globalTrustVector1.length != 0)
+            distance = Math.sqrt(distance/globalTrustVector1.length);
+
+        return distance;
+    }
+    
+    
 }
